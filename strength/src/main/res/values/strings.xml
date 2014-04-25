@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Strength Standards</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="name">Fredrik Holstensson</string>
+    <string name="gender">Man</string>
+    <string name="weight">76 kg</string>
+    <string name="length">183 cm</string>
+    <string name="level">Novice</string>
+</resources>

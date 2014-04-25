@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <ImageView
+        android:id="@+id/badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/badge"
+        android:text="@string/name"
+        android:onClick="onClicked"
+        android:layout_margin="5dp"
+        android:textSize="18sp"  />
+
+    <TextView android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_toRightOf="@+id/badge"
+        android:text="@string/level"
+        android:layout_margin="5dp"
+        android:textSize="18sp" />
+
+    <TextView android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/badge"
+        android:text="@string/gender"
+        android:layout_margin="5dp"
+        android:textSize="18sp" />
+
+    <TextView android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gender"
+        android:text="@string/weight"
+        android:layout_margin="5dp"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/weight">
+
+    <se.holsten.strength.ExerciseView
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:background="?android:selectableItemBackground"
+            android:onClick="onClicked"
+            custom:name="Deadlift"
+            custom:weight="100 kg"
+            />
+
+        <se.holsten.strength.ExerciseView
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:background="?android:selectableItemBackground"
+            android:onClick="onClicked"
+            custom:name="Press"
+            custom:weight="50 kg"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>

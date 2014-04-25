@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/StrengthStandards.iml" filepath="$PROJECT_DIR$/StrengthStandards.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strength/strength.iml" filepath="$PROJECT_DIR$/strength/strength.iml" />
+    </modules>
+  </component>
+</project>
+
