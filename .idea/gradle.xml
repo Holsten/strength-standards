@@ -7,8 +7,8 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
-            <option value="C:\Users\fredrik.holstensson\Dropbox\Code\StrengthStandards" />
-            <option value="C:\Users\fredrik.holstensson\Dropbox\Code\StrengthStandards\strength" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/strength" />
           </set>
         </option>
       </GradleProjectSettings>

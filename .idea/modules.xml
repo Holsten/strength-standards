@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/StrengthStandards.iml" filepath="$PROJECT_DIR$/StrengthStandards.iml" />
       <module fileurl="file://$PROJECT_DIR$/strength/strength.iml" filepath="$PROJECT_DIR$/strength/strength.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strength-standards.iml" filepath="$PROJECT_DIR$/strength-standards.iml" />
     </modules>
   </component>
 </project>
