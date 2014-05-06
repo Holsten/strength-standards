@@ -9,4 +9,3 @@ CREATE TABLE max (
     reps           INTEGER NOT NULL,
     weight         REAL    NOT NULL
 );
-

@@ -10,7 +10,7 @@ import java.io.InputStream;
 public class StrengthDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "strength.db";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     private static Context _myContext;
 
     public StrengthDatabaseHelper(Context context) {
@@ -25,12 +25,6 @@ public class StrengthDatabaseHelper extends SQLiteOpenHelper {
         processFile(R.raw.table_level, database);
         processFile(R.raw.table_standard, database);
         processFile(R.raw.table_max, database);
-
-
-        //database.execSQL(getRaw(R.raw.table_exercise));
-        //database.execSQL(getRaw(R.raw.table_level));
-        //database.execSQL(getRaw(R.raw.table_standard));
-        //database.execSQL(getRaw(R.raw.table_max));
     }
 
     // Method is called during an upgrade of the database,
@@ -44,7 +38,14 @@ public class StrengthDatabaseHelper extends SQLiteOpenHelper {
         String string = getRaw(resource);
         String[] array = string.split(";");
         for(String item : array) {
-            database.execSQL(item);
+            String sql = item.trim();
+            if (!sql.isEmpty()) {
+                try {
+                    database.execSQL(item);
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
         }
     }
 

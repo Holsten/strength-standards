@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.List;
+
 
 public class StandardsActivity extends Activity {
 
@@ -18,6 +20,14 @@ public class StandardsActivity extends Activity {
         setContentView(R.layout.activity_standards);
 
         _dataSource = new StrengthDataSource(this);
+
+        try {
+            _dataSource.open();
+            List<Exercise> list = _dataSource.getExercises();
+            _dataSource.close();
+        } catch (Exception ex) {
+            String s = ex.getMessage();
+        }
     }
 
 
@@ -44,7 +54,7 @@ public class StandardsActivity extends Activity {
     public void onClicked(View view) {
         try {
             _dataSource.open();
-            String text = _dataSource.getLevel(1, 76, 100);
+            String text = _dataSource.getLevel(1, 76, 200);
             _dataSource.close();
             Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
         } catch (Exception ex) {

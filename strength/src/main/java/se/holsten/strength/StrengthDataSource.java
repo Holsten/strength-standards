@@ -1,7 +1,10 @@
 package se.holsten.strength;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -34,19 +37,33 @@ public class StrengthDataSource {
                 "from standard " +
                 "left join exercise on standard.fk_exercise_id = exercise._id " +
                 "left join level on standard.fk_level_id = level._id " +
-                "where fk_exercise_id = " + String.valueOf(exercise) + " " +
-                "and standard.bodyweight <= " + String.valueOf(bodyWeight) + " " +
-                "and standard.weight >= " + String.valueOf(weight) + " " +
+                "where fk_exercise_id = ? " +
+                "and standard.bodyweight <= ? " +
+                "and standard.weight >= ? " +
                 "order by standard.bodyweight desc, standard.weight asc " +
                 "limit 1 ";
-        //Cursor cursor = database.rawQuery(sql, new String[]{
-        //        String.valueOf(exercise),
-        //        String.valueOf(bodyWeight)
-        //        , String.valueOf(weight)});
-        Cursor cursor = database.rawQuery(sql,null);
+        Cursor cursor = database.rawQuery(sql, new String[]{
+                String.valueOf(exercise),
+                String.valueOf(bodyWeight),
+                String.valueOf(weight)});
         if (cursor != null)
             if (cursor.moveToFirst())
                 return cursor.getString(0);
         return "";
+    }
+
+    public List<Exercise> getExercises() {
+        List<Exercise> exercises = new ArrayList<Exercise>();
+        String sql = "select _id, name from exercise order by _id";
+        Cursor cursor = database.rawQuery(sql, null);
+        if (cursor != null)
+            while (cursor.moveToNext()) {
+                Exercise exercise = new Exercise(
+                        cursor.getInt(0),
+                        cursor.getString(1)
+                );
+                exercises.add(exercise);
+            }
+        return exercises;
     }
 }
